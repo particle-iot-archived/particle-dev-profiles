@@ -1,0 +1,37 @@
+{
+  "name": "particle-dev-profiles",
+  "main": "./lib/particle-dev-profiles",
+  "version": "0.0.1",
+  "description": "Particle Dev support for profiles and basic Particle Cloud authentication",
+  "keywords": [],
+  "activationCommands": {},
+  "repository": "https://github.com/spark/particle-dev-profiles",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
+    "atom-space-pen-views": "^2.0.0",
+    "event-kit": "^1.0.0",
+    "fs-plus": "^2.3.0",
+    "particle-cli": "^1.8.3"
+  },
+  "providedServices": {
+    "particle-dev-profiles": {
+      "description": "Switching between profiles and Particle Cloud authentication",
+      "versions": {
+        "0.0.1": "provideParticleDevProfiles"
+      }
+    }
+  },
+  "consumedServices": {
+    "status-bar": {
+      "versions": {
+        "^0.0.1": "consumeStatusBar"
+      }
+    }
+  },
+  "devDependencies": {
+    "proxyquire": "^1.7.2"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "access_token": "0e7697968ba59e669f5475e0df56518e0e769796",
+  "username": "foo@baz.io",
+  "serial_port": "/dev/cu.usbmodem1411",
+  "serial_baudrate": "115200"
+}

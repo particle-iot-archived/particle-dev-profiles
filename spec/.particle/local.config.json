@@ -1,0 +1,6 @@
+{
+  "username": "foo@bar.io",
+  "access_token": "346d0191390eea41e34666ba4a53e28a346d0191",
+  "apiUrl": "http://127.0.0.1:9090",
+  "serial_port": "/dev/cu.usbmodem1234"
+}

@@ -1,6 +1,7 @@
 {Emitter} = require 'event-kit'
 path = require 'path'
-settings = require 'particle-cli/settings.js'
+settingsPath = 'particle-cli/settings.js'
+settings = require settingsPath
 utilities = require 'particle-cli/lib/utilities.js'
 
 Function::property = (prop, desc) ->
@@ -24,10 +25,64 @@ module.exports =
 			set: ->
 
 		@property 'currentProfile',
-			get: ->
-				settings.whichProfile()
-				settings.loadOverrides()
+			get: -> @_reloadSettings ->
+				delete require.cache[require.resolve(settingsPath)]
+				settings = require settingsPath
 				settings.profile
 
 			set: (profile) ->
 				settings.switchProfile profile
+				@emit 'current-profile-changed', profile
+
+			# Set key to value
+		set: (key, value) -> @_reloadSettings =>
+			settings.override null, key, value
+			@emit 'key-changed',
+				key: key
+				value: value
+
+		# Get key's value
+		get: (key) -> @_reloadSettings ->
+			settings[key]
+
+		# Get local (current window's) key's value
+		getLocal: (key) ->
+			if window.localSettings
+				return window.localSettings[key]
+			null
+
+		# Set local (current window's) key to value
+		setLocal: (key, value) ->
+			if !window.localSettings
+				window.localSettings = {}
+
+			window.localSettings[key] = value
+
+		# Set current device's ID and name
+		setCurrentDevice: (id, name) ->
+			@setLocal 'current_device', id
+			@setLocal 'current_device_name', name
+			@emit 'current-device-changed', name
+
+		# Clear current core
+		clearCurrentDevice: ->
+			@setCurrentDevice null, null
+
+		# True if there is current device set
+		@property 'hasCurrentCore',
+			get: ->
+				!!@getLocal('current_core')
+			set: ->
+
+		# API base URL
+		@property 'apiUrl',
+			get: ->
+				@getLocal('apiUrl')
+			set: (apiUrl) ->
+				@set 'apiUrl', apiUrl
+
+		# Decorator which forces settings to be reloaded
+		_reloadSettings: (callback) ->
+			delete require.cache[require.resolve(settingsPath)]
+			settings = require settingsPath
+			callback()

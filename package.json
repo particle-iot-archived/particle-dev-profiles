@@ -1,6 +1,6 @@
 {
   "name": "particle-dev-profiles",
-  "main": "./lib/particle-dev-profiles",
+  "main": "./lib/main",
   "version": "0.0.1",
   "description": "Particle Dev support for profiles and basic Particle Cloud authentication",
   "keywords": [],

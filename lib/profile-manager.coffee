@@ -71,15 +71,37 @@ module.exports =
 		# True if there is current device set
 		@property 'hasCurrentCore',
 			get: ->
-				!!@getLocal('current_core')
+				!!@getLocal 'current_device'
 			set: ->
 
 		# API base URL
 		@property 'apiUrl',
 			get: ->
-				@getLocal('apiUrl')
+				@get 'apiUrl'
 			set: (apiUrl) ->
 				@set 'apiUrl', apiUrl
+
+		# Current platform ID
+		@property 'currentPlatformTarget',
+			get: ->
+				# Default to a Photon
+				@getLocal('current_platform_target') ? 6
+			set: (platformId) ->
+				@setLocal 'current_platform_target', platformId
+				@emit 'current-platform-target-changed', platformId
+
+		# Known platforms
+		@property 'knownPlatformTargets',
+			get: ->
+				0:
+					name: 'Core',
+				6:
+					name: 'Photon',
+				8:
+					name: 'P1'
+				10:
+					name: 'Electron'
+			set: ->
 
 		# Decorator which forces settings to be reloaded
 		_reloadSettings: (callback) ->

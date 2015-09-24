@@ -8,8 +8,12 @@ Function::property = (prop, desc) ->
 	Object.defineProperty @prototype, prop, desc
 
 module.exports =
-	class ProfileManager extends Emitter
+	class ProfileManager
 		constructor: ->
+			@emitter = new Emitter
+
+		destroy: ->
+			@emitter.dispose()
 
 		@property 'profiles',
 			get: ->
@@ -32,12 +36,12 @@ module.exports =
 
 			set: (profile) ->
 				settings.switchProfile profile
-				@emit 'current-profile-changed', profile
+				@emitter.emit 'current-profile-changed', profile
 
 			# Set key to value
 		set: (key, value) -> @_reloadSettings =>
 			settings.override null, key, value
-			@emit 'key-changed',
+			@emitter.emit 'key-changed',
 				key: key
 				value: value
 
@@ -62,7 +66,7 @@ module.exports =
 		setCurrentDevice: (id, name) ->
 			@setLocal 'current_device', id
 			@setLocal 'current_device_name', name
-			@emit 'current-device-changed', name
+			@emitter.emit 'current-device-changed', name
 
 		# Clear current core
 		clearCurrentDevice: ->
@@ -88,7 +92,7 @@ module.exports =
 				@getLocal('current_platform_target') ? 6
 			set: (platformId) ->
 				@setLocal 'current_platform_target', platformId
-				@emit 'current-platform-target-changed', platformId
+				@emitter.emit 'current-platform-target-changed', platformId
 
 		# Known platforms
 		@property 'knownPlatformTargets',
@@ -102,6 +106,15 @@ module.exports =
 				10:
 					name: 'Electron'
 			set: ->
+
+		# Current platform name
+		@property 'currentPlatformTargetName',
+			get: ->
+				@knownPlatformTargets[@currentPlatformTarget].name
+			set: ->
+
+		onCurrentPlatformTargetChanged: (callback) ->
+			@emitter.on 'current-platform-target-changed', callback
 
 		# Decorator which forces settings to be reloaded
 		_reloadSettings: (callback) ->

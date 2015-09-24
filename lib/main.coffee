@@ -1,12 +1,15 @@
-{CompositeDisposable} = require 'atom'
+CompositeDisposable = null
+ProfileManager = null
 
 module.exports = ParticleDevProfiles =
   subscriptions: null
 
   activate: (state) ->
-    # Events subscribed to in atom's system can be easily cleaned up with a CompositeDisposable
-    @subscriptions = new CompositeDisposable
+    {CompositeDisposable} = require 'atom'
+    ProfileManager = require './profile-manager'
 
+    @subscriptions = new CompositeDisposable
+    @profileManager = new ProfileManager()
     # @subscriptions.add atom.commands.add 'atom-workspace', 'particle-dev-profiles:toggle': => @toggle()
 
   deactivate: ->
@@ -16,3 +19,6 @@ module.exports = ParticleDevProfiles =
 
   consumeStatusBar: (statusBar) ->
     @statusBar = statusBar
+
+    ProfilesTile = require './profiles-tile'
+    new ProfilesTile(@statusBar, @profileManager)

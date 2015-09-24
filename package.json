@@ -14,7 +14,8 @@
     "atom-space-pen-views": "^2.0.0",
     "event-kit": "^1.0.0",
     "fs-plus": "^2.3.0",
-    "particle-cli": "^1.8.3"
+    "particle-cli": "^1.8.3",
+    "particle-dev-views": "git://github.com/spark/particle-dev-views.git#v0.0.3"
   },
   "providedServices": {
     "particle-dev-profiles": {
@@ -27,7 +28,7 @@
   "consumedServices": {
     "status-bar": {
       "versions": {
-        "^0.0.1": "consumeStatusBar"
+        "^1.0.0": "consumeStatusBar"
       }
     }
   },

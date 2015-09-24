@@ -22,3 +22,6 @@ module.exports = ParticleDevProfiles =
 
     ProfilesTile = require './profiles-tile'
     new ProfilesTile(@statusBar, @profileManager)
+
+  provideParticleDevProfiles: ->
+    @profileManager

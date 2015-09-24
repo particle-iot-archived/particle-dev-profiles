@@ -1,8 +1,8 @@
-{Emitter} = require 'event-kit'
-path = require 'path'
-settingsPath = 'particle-cli/settings.js'
-settings = require settingsPath
-utilities = require 'particle-cli/lib/utilities.js'
+Emitter = null
+path = null
+settingsPath = null
+settings = null
+utilities = null
 
 Function::property = (prop, desc) ->
 	Object.defineProperty @prototype, prop, desc
@@ -10,6 +10,12 @@ Function::property = (prop, desc) ->
 module.exports =
 	class ProfileManager
 		constructor: ->
+			{Emitter} = require 'event-kit'
+			path = require 'path'
+			settingsPath = 'particle-cli/settings.js'
+			settings = require settingsPath
+			utilities = require 'particle-cli/lib/utilities.js'
+
 			@emitter = new Emitter
 
 		destroy: ->

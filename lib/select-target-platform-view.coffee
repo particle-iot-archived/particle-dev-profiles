@@ -8,11 +8,11 @@ class SelectTargetPlatformView extends SelectView
     super
 
     {$$} = require 'atom-space-pen-views'
-    @prop 'id', 'particle-dev-select-port-view'
+    @prop 'id', 'particle-dev-select-target-platform-view'
 
   show: =>
     items = []
-    for k, v of @profileManager.knownPlatformTargets
+    for k, v of @profileManager.knownTargetPlatforms
       v.id = k
       items.push v
     @setItems items
@@ -23,7 +23,7 @@ class SelectTargetPlatformView extends SelectView
 
   confirmed: (item) ->
     @hide()
-    @profileManager.currentPlatformTarget = item.id
+    @profileManager.currentTargetPlatform = item.id
 
   getFilterKey: ->
     'name'

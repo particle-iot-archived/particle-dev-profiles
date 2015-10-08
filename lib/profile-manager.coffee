@@ -47,9 +47,7 @@ module.exports =
 			# Set key to value
 		set: (key, value) -> @_reloadSettings =>
 			settings.override null, key, value
-			@emitter.emit 'key-changed',
-				key: key
-				value: value
+			@emitter.emit key + '-changed', value
 
 		# Get key's value
 		get: (key) -> @_reloadSettings ->
@@ -67,12 +65,12 @@ module.exports =
 				window.localSettings = {}
 
 			window.localSettings[key] = value
+			@emitter.emit key + '-changed', value
 
 		# Set current device's ID and name
 		setCurrentDevice: (id, name) ->
-			@setLocal 'current_device', id
-			@setLocal 'current_device_name', name
-			@emitter.emit 'current-device-changed', name
+			@setLocal 'current-device', id
+			@setLocal 'current-device-name', name
 
 		# Clear current core
 		clearCurrentDevice: ->
@@ -81,7 +79,7 @@ module.exports =
 		# True if there is current device set
 		@property 'hasCurrentCore',
 			get: ->
-				!!@getLocal 'current_device'
+				!!@getLocal 'current-device'
 			set: ->
 
 		# API base URL
@@ -92,16 +90,15 @@ module.exports =
 				@set 'apiUrl', apiUrl
 
 		# Current platform ID
-		@property 'currentPlatformTarget',
+		@property 'currentTargetPlatform',
 			get: ->
 				# Default to a Photon
-				@getLocal('current_platform_target') ? 6
+				@getLocal('current-target-platform') ? 6
 			set: (platformId) ->
-				@setLocal 'current_platform_target', platformId
-				@emitter.emit 'current-platform-target-changed', platformId
+				@setLocal 'current-target-platform', platformId
 
 		# Known platforms
-		@property 'knownPlatformTargets',
+		@property 'knownTargetPlatforms',
 			get: ->
 				0:
 					name: 'Core',
@@ -114,13 +111,16 @@ module.exports =
 			set: ->
 
 		# Current platform name
-		@property 'currentPlatformTargetName',
+		@property 'currentTargetPlatformName',
 			get: ->
-				@knownPlatformTargets[@currentPlatformTarget].name
+				@knownTargetPlatforms[@currentTargetPlatform].name
 			set: ->
 
-		onCurrentPlatformTargetChanged: (callback) ->
-			@emitter.on 'current-platform-target-changed', callback
+		onCurrentTargetPlatformChanged: (callback) ->
+			@emitter.on 'current-target-platform-changed', callback
+
+		on: (event, callback) ->
+			@emitter.on event, callback
 
 		# Decorator which forces settings to be reloaded
 		_reloadSettings: (callback) ->

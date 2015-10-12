@@ -10,7 +10,6 @@ module.exports = ParticleDevProfiles =
 
     @subscriptions = new CompositeDisposable
     @profileManager = new ProfileManager()
-    # @subscriptions.add atom.commands.add 'atom-workspace', 'particle-dev-profiles:toggle': => @toggle()
 
   deactivate: ->
     @subscriptions.dispose()

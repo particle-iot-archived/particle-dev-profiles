@@ -44,14 +44,14 @@ module.exports =
 				settings.switchProfile profile
 				@emitter.emit 'current-profile-changed', profile
 
+		# Get key's value
+		get: (key) -> @_reloadSettings ->
+			settings[key]
+
 			# Set key to value
 		set: (key, value) -> @_reloadSettings =>
 			settings.override null, key, value
 			@emitter.emit key + '-changed', value
-
-		# Get key's value
-		get: (key) -> @_reloadSettings ->
-			settings[key]
 
 		# Get local (current window's) key's value
 		getLocal: (key) ->
@@ -77,7 +77,7 @@ module.exports =
 			@setCurrentDevice null, null
 
 		# True if there is current device set
-		@property 'hasCurrentCore',
+		@property 'hasCurrentDevice',
 			get: ->
 				!!@getLocal 'current-device'
 			set: ->

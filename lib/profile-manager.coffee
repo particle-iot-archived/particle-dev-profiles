@@ -108,6 +108,16 @@ module.exports =
 					name: 'P1'
 				10:
 					name: 'Electron'
+				82:
+					name: 'Digistump Oak'
+				88:
+					name: 'Redbear Duo'
+				103:
+					name: 'Bluz'
+				269:
+					name: 'Bluz Gateway'
+				270:
+					name: 'Bluz Beacon'
 			set: ->
 
 		# Current platform name

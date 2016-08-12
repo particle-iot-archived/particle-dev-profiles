@@ -17,6 +17,11 @@
     "particle-cli": "git://github.com/spark/particle-cli.git#feature/no-serialport",
     "particle-dev-views": "git://github.com/spark/particle-dev-views.git#v0.0.3"
   },
+  "scripts": {
+    "lint": "eslint -f unix src/**/*.js",
+    "test": "atom --test spec/"
+  },
+  "atomTestRunner": "./spec/runner.js",
   "providedServices": {
     "particle-dev-profiles": {
       "description": "Switching between profiles and Particle Cloud authentication",
@@ -33,6 +38,10 @@
     }
   },
   "devDependencies": {
+    "atom-mocha-test-runner": "^0.2.2",
+    "chai": "^3.5.0",
+    "eslint": "^3.2.2",
+    "eslint-config-particle": "^1.0.5",
     "proxyquire": "^1.7.2"
   }
 }

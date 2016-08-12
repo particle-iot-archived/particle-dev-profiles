@@ -2,7 +2,7 @@
 
 import {expect} from 'chai';
 import path from 'path';
-import ProfileManager from '../lib/profile-manager';
+import ProfileManager from '../src/profile-manager';
 
 describe('Profile Manager', () => {
 	describe('listing profiles', () => {

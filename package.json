@@ -20,7 +20,7 @@
   },
   "scripts": {
     "docs": "./docs.sh",
-    "lint": "eslint -f unix src/**/*.js",
+    "lint": "eslint -f unix {spec,src}/**/*.js",
     "test": "atom --test spec/"
   },
   "atomTestRunner": "./spec/runner.js",

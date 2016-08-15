@@ -1,12 +1,11 @@
 'use babel';
 
 import {expect} from 'chai';
-import path from 'path';
 import ProfileManager from '../src/profile-manager';
 
 describe('Profile Manager', () => {
 	describe('listing profiles', () => {
-		it('returns correct profiles', function() {
+		it('returns correct profiles', () => {
 			process.env.home = __dirname;
 			let manager = new ProfileManager();
 

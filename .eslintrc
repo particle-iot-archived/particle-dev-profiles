@@ -5,7 +5,8 @@
     "es6": true,
     "node": true,
     "browser": true,
-    "atomtest": true
+    "atomtest": true,
+    "mocha": true
   },
   "rules": {
     "no-var": 2,

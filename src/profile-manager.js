@@ -1,10 +1,11 @@
 'use babel';
 
-let Emitter = null;
-let path = null;
-let settingsPath = null;
-let settings = null;
-let utilities = null;
+import Client from 'particle-api-js';
+let Emitter;
+let path;
+let settingsPath;
+let settings;
+let utilities;
 
 export default class ProfileManager {
 	constructor() {
@@ -57,6 +58,8 @@ export default class ProfileManager {
 	 * @param  {String} profile Name of the profile to set
 	 */
 	set currentProfile(profile) {
+		this._apiClient = undefined;
+
 		settings.switchProfile(profile);
 		this.emitter.emit('current-profile-changed', profile);
 	}
@@ -222,6 +225,26 @@ export default class ProfileManager {
 	 */
 	get currentTargetPlatformName() {
 		return this.knownTargetPlatforms[this.currentTargetPlatform].name;
+	}
+
+	/**
+	 * Get instance of `particle-api-js` {Client}, authenticated if possible.
+	 * When profile is changed a new instance of the client is required.
+	 * It's best to listen for `current-profile-changed` and get the latest
+	 * instance then.
+	 *
+	 * @return {Client} Client instance
+	 */
+	get apiClient() {
+		if (this._apiClient) {
+			return this._apiClient;
+		}
+
+		this._apiClient = new Client({
+			auth: this.get('access_token')
+		});
+
+		return this._apiClient;
 	}
 
 	/**

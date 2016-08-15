@@ -40,9 +40,10 @@
   },
   "devDependencies": {
     "atom-mocha-test-runner": "^0.2.2",
+    "babel-eslint": "^6.1.2",
     "chai": "^3.5.0",
     "documentation": "^4.0.0-beta9",
-    "eslint": "^3.2.2",
+    "eslint": "^2.13.1",
     "eslint-config-particle": "^1.0.5",
     "proxyquire": "^1.7.2"
   }

@@ -1,34 +1,33 @@
 'use babel';
 
-let ParticleDevProfiles;
 let CompositeDisposable = null;
 let ProfileManager = null;
 
-export default ParticleDevProfiles = {
-  subscriptions: null,
+export default {
+	subscriptions: null,
 
-  activate(state) {
-    ({CompositeDisposable} = require('atom'));
-    ProfileManager = require('./profile-manager');
+	activate(state) {
+		({CompositeDisposable} = require('atom'));
+		ProfileManager = require('./profile-manager');
 
-    this.subscriptions = new CompositeDisposable();
-    return this.profileManager = new ProfileManager();
-  },
+		this.subscriptions = new CompositeDisposable();
+		return this.profileManager = new ProfileManager();
+	},
 
-  deactivate() {
-    return this.subscriptions.dispose();
-  },
+	deactivate() {
+		return this.subscriptions.dispose();
+	},
 
-  serialize() {},
+	serialize() {},
 
-  consumeStatusBar(statusBar) {
-    this.statusBar = statusBar;
+	consumeStatusBar(statusBar) {
+		this.statusBar = statusBar;
 
-    let ProfilesTile = require('./profiles-tile');
-    return new ProfilesTile(this.statusBar, this.profileManager);
-  },
+		let ProfilesTile = require('./profiles-tile');
+		return new ProfilesTile(this.statusBar, this.profileManager);
+	},
 
-  provideParticleDevProfiles() {
-    return this.profileManager;
-  }
+	provideParticleDevProfiles() {
+		return this.profileManager;
+	}
 };

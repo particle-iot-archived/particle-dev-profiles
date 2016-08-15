@@ -1,0 +1,862 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset='utf-8' />
+  <title>  | Documentation</title>
+  <meta name='viewport' content='width=device-width,initial-scale=1'>
+  <link href='assets/bass.css' type='text/css' rel='stylesheet' />
+  <link href='assets/style.css' type='text/css' rel='stylesheet' />
+  <link href='assets/github.css' type='text/css' rel='stylesheet' />
+</head>
+<body class='documentation'>
+  <div class='max-width-4 mx-auto'>
+    <div class='clearfix md-mxn2'>
+      <div class='fixed xs-hide fix-3 overflow-auto max-height-100'>
+        <div class='py1 px2'>
+          <h3 class='mb0 no-anchor'></h3>
+          <div class='mb1'><code></code></div>
+          <input
+            placeholder='Filter'
+            id='filter-input'
+            class='col12 block input'
+            type='text' />
+          <div id='toc'>
+            <ul class='list-reset h5 py1-ul'>
+              
+                
+                <li><a
+                  href='#profiles'
+                  class="">
+                  profiles
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#currentprofile'
+                  class="">
+                  currentProfile
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#currentprofile'
+                  class="">
+                  currentProfile
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#get'
+                  class="">
+                  get
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#set'
+                  class="">
+                  set
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#getlocal'
+                  class="">
+                  getLocal
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#setlocal'
+                  class="">
+                  setLocal
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#setcurrentdevice'
+                  class="">
+                  setCurrentDevice
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#clearcurrentdevice'
+                  class="">
+                  clearCurrentDevice
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#hascurrentdevice'
+                  class="">
+                  hasCurrentDevice
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#apiurl'
+                  class="">
+                  apiUrl
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#apiurl'
+                  class="">
+                  apiUrl
+                  
+                </a>
+                
+                </li>
+              
+            </ul>
+          </div>
+          <div class='mt1 h6 quiet'>
+            <a href='http://documentation.js.org/reading-documentation.html'>Need help reading this?</a>
+          </div>
+        </div>
+      </div>
+      <div class='fix-margin-3'>
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    <h3 class='fl m0' id='profiles'>
+      profiles
+    </h3>
+    
+  </div>
+  
+
+  <p>Get list of profiles defined in <code>~/.particle</code> directory</p>
+
+
+  <div class='pre p1 fill-light mt0'>profiles</div>
+
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code>:
+        list of profile names
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    <h3 class='fl m0' id='currentprofile'>
+      currentProfile
+    </h3>
+    
+  </div>
+  
+
+  <p>Get current profile name</p>
+
+
+  <div class='pre p1 fill-light mt0'>currentProfile</div>
+
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>:
+        profile name
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    <h3 class='fl m0' id='currentprofile'>
+      currentProfile
+    </h3>
+    
+  </div>
+  
+
+  <p>Set current profile</p>
+
+
+  <div class='pre p1 fill-light mt0'>currentProfile</div>
+
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>profile</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> Name of the profile to set
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    <h3 class='fl m0' id='get'>
+      get
+    </h3>
+    
+  </div>
+  
+
+  <p>Return <code>key</code> value stored in current profile</p>
+
+
+  <div class='pre p1 fill-light mt0'>get(key: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></div>
+
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>key</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> Key name
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>:
+        Key value
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    <h3 class='fl m0' id='set'>
+      set
+    </h3>
+    
+  </div>
+  
+
+  <p>Sets <code>key</code> to <code>value</code> in current profile</p>
+
+
+  <div class='pre p1 fill-light mt0'>set(key: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
+
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>key</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> Key to set
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>value</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code> Value to set
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    <h3 class='fl m0' id='getlocal'>
+      getLocal
+    </h3>
+    
+  </div>
+  
+
+  <p>Get local (current window&#x27;s) key&#x27;s value</p>
+
+
+  <div class='pre p1 fill-light mt0'>getLocal(key: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></div>
+
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>key</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> Key name
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>:
+        Key value
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    <h3 class='fl m0' id='setlocal'>
+      setLocal
+    </h3>
+    
+  </div>
+  
+
+  <p>Set local (current window&#x27;s) key to value</p>
+
+
+  <div class='pre p1 fill-light mt0'>setLocal(key: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
+
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>key</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> Key to set
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>value</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code> Value to set
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    <h3 class='fl m0' id='setcurrentdevice'>
+      setCurrentDevice
+    </h3>
+    
+  </div>
+  
+
+  <p>Set current device&#x27;s ID and name</p>
+
+
+  <div class='pre p1 fill-light mt0'>setCurrentDevice(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</div>
+
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>id</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> Device ID
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>name</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> Device name
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    <h3 class='fl m0' id='clearcurrentdevice'>
+      clearCurrentDevice
+    </h3>
+    
+  </div>
+  
+
+  <p>Clear current device</p>
+
+
+  <div class='pre p1 fill-light mt0'>clearCurrentDevice()</div>
+
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    <h3 class='fl m0' id='hascurrentdevice'>
+      hasCurrentDevice
+    </h3>
+    
+  </div>
+  
+
+  <p>Check if a device is currently selected</p>
+
+
+  <div class='pre p1 fill-light mt0'>hasCurrentDevice</div>
+
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>:
+        <code>true</code>
+ if there is a device currently selected
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    <h3 class='fl m0' id='apiurl'>
+      apiUrl
+    </h3>
+    
+  </div>
+  
+
+  <p>Get API base URL</p>
+
+
+  <div class='pre p1 fill-light mt0'>apiUrl</div>
+
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>:
+        API base URL
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    <h3 class='fl m0' id='apiurl'>
+      apiUrl
+    </h3>
+    
+  </div>
+  
+
+  <p>Set API base URL. This will change it in profile making it available
+in the CLI too.</p>
+
+
+  <div class='pre p1 fill-light mt0'>apiUrl</div>
+
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>apiUrl</span> <code class='quiet'>([type])</code> [description]
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>[type]</code>:
+        [description]
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+      </div>
+    </div>
+  </div>
+  <script src='assets/anchor.js'></script>
+  <script src='assets/site.js'></script>
+</body>
+</html>

@@ -1,8 +1,0 @@
-'menu': [
-  {
-    'label': 'Particle',
-    'submenu': []
-  }
-],
-'context-menu':
-  'atom-workspace': []

@@ -1,3 +1,4 @@
+/* global atom */
 'use babel';
 
 import { View } from 'atom-space-pen-views';
@@ -20,8 +21,12 @@ export default class ProfilesTile extends View {
 		this.subscriptions = new CompositeDisposable();
 
 		this.subscriptions.add(this.targetPlatform.on('click', () => {
-			if (typeof SelectTargetPlatformView === 'undefined' || SelectTargetPlatformView === null) { SelectTargetPlatformView = require('./select-target-platform-view'); }
-			if (this.selectTargetPlatformView == null) { this.selectTargetPlatformView = new SelectTargetPlatformView(this.profileManager); }
+			if (typeof SelectTargetPlatformView === 'undefined' || SelectTargetPlatformView === null) {
+				SelectTargetPlatformView = require('./select-target-platform-view');
+			}
+			if (this.selectTargetPlatformView == null) {
+				this.selectTargetPlatformView = new SelectTargetPlatformView(this.profileManager);
+			}
 			return this.selectTargetPlatformView.show();
 		}
 		)
@@ -48,5 +53,5 @@ export default class ProfilesTile extends View {
 };
 
 function __guard__(value, transform) {
-  return (typeof value !== 'undefined' && value !== null) ? transform(value) : undefined;
+	return (typeof value !== 'undefined' && value !== null) ? transform(value) : undefined;
 }

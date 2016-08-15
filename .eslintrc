@@ -4,7 +4,8 @@
   "env": {
     "es6": true,
     "node": true,
-    "browser": true
+    "browser": true,
+    "atomtest": true
   },
   "rules": {
     "no-var": 2,

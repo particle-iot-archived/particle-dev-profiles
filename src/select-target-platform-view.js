@@ -30,7 +30,9 @@ export default class SelectTargetPlatformView extends SelectView {
 	}
 
 	viewForItem(item) {
-		return $$(function() { return this.li(item.name); });
+		return $$(function view() {
+			return this.li(item.name);
+		});
 	}
 
 	confirmed(item) {

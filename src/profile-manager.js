@@ -44,11 +44,13 @@ export default class ProfileManager {
 	 * @getter
 	 * @return {String} profile name
 	 */
-	get currentProfile() { return this._reloadSettings(function() {
-		delete require.cache[require.resolve(settingsPath)];
-		settings = require(settingsPath);
-		return settings.profile;
-	}); }
+	get currentProfile() {
+		return this._reloadSettings(function afterReload() {
+			delete require.cache[require.resolve(settingsPath)];
+			settings = require(settingsPath);
+			return settings.profile;
+		});
+	}
 
 	/**
 	 * Set current profile
@@ -70,7 +72,9 @@ export default class ProfileManager {
 	 * @param  {String} key Key name
 	 * @return {Object}     Key value
 	 */
-	get(key) { return this._reloadSettings(() => settings[key]); }
+	get(key) {
+		return this._reloadSettings(() => settings[key]);
+	}
 
 	/**
 	 * Sets `key` to `value` in current profile
@@ -78,11 +82,14 @@ export default class ProfileManager {
 	 * @fires $KEY-changed
 	 * @param  {String} key   Key to set
 	 * @param  {Object} value Value to set
+	 * @return {undefined}
 	 */
-	set(key, value) { return this._reloadSettings(() => {
-		settings.override(null, key, value);
-		this.emitter.emit(key + '-changed', value);
-	}); }
+	set(key, value) {
+		return this._reloadSettings(() => {
+			settings.override(null, key, value);
+			this.emitter.emit(key + '-changed', value);
+		});
+	}
 
 	/**
 	 * Get local (current window's) key's value
@@ -103,6 +110,7 @@ export default class ProfileManager {
 	 * @fires $KEY-changed
 	 * @param  {String} key   Key to set
 	 * @param  {Object} value Value to set
+	 * @return {undefined}
 	 */
 	setLocal(key, value) {
 		if (!window.localSettings) {
@@ -118,6 +126,7 @@ export default class ProfileManager {
 	 *
 	 * @param {String} id   Device ID
 	 * @param {String} name Device name
+	 * @return {undefined}
 	 *
 	 */
 	setCurrentDevice(id, name) {
@@ -127,6 +136,8 @@ export default class ProfileManager {
 
 	/**
 	 * Clear current device
+	 *
+	 * @return {undefined}
 	 */
 	clearCurrentDevice() {
 		this.setCurrentDevice(null, null);
@@ -252,6 +263,7 @@ export default class ProfileManager {
 	 *
 	 * @param {String}   event    Name of the event
 	 * @param {Function} callback Callback to be called when event is triggered
+	 * @return {undefined}
 	 */
 	on(event, callback) {
 		this.emitter.on(event, callback);

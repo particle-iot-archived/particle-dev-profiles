@@ -1,5 +1,7 @@
 # Particle Dev Profiles package
 
+[![Build Status](https://travis-ci.org/spark/particle-dev-profiles.svg?branch=master)](https://travis-ci.org/spark/particle-dev-profiles) [![](https://img.shields.io/badge/docs-latest-brightgreen.svg?style=flat)](http://spark.github.io/particle-dev-profiles/) [![apm](https://img.shields.io/apm/v/particle-dev-profiles.svg?maxAge=2592000)]()
+
 Package providing support for Particle CLI profiles and basic Particle Cloud authentication.
 
 ## Usage

@@ -21,6 +21,12 @@ export default class ProfileManager {
 			return this.emitter.dispose();
 		}
 
+		/**
+		 * Get list of profiles defined in `~/.particle` directory
+		 *
+		 * @readonly
+		 * @return {Array} list of profile names
+		 */
 		get profiles() {
 			let particleDir = settings.ensureFolder();
 			let configFileSuffix = '.config.json';
@@ -28,31 +34,59 @@ export default class ProfileManager {
 				path.join(particleDir, `*${configFileSuffix}`)
 			]);
 			files = files.filter(file => file.endsWith(configFileSuffix));
-			return files = files.map(file => path.basename(file).replace(configFileSuffix, ''));
+			return files.map(file => path.basename(file).replace(configFileSuffix, ''));
 		}
 
+		/**
+		 * Get current profile name
+		 *
+		 * @getter
+		 * @return {String} profile name
+		 */
 		get currentProfile() { return this._reloadSettings(function() {
 			delete require.cache[require.resolve(settingsPath)];
 			settings = require(settingsPath);
 			return settings.profile;
 		}); }
 
+		/**
+		 * Set current profile
+		 *
+		 * @setter
+		 * @fires current-profile-changed
+		 * @param  {String} profile Name of the profile to set
+		 */
 		set currentProfile(profile) {
 			settings.switchProfile(profile);
-			return this.emitter.emit('current-profile-changed', profile);
+			this.emitter.emit('current-profile-changed', profile);
 		}
 
-		// Get key's value
+		/**
+		 * Return `key` value stored in current profile
+		 *
+		 * @param  {String} key Key name
+		 * @return {Object}     Key value
+		 */
 		get(key) { return this._reloadSettings(() => settings[key]); }
 
-		// Set key to value
+		/**
+		 * Sets `key` to `value` in current profile
+		 *
+		 * @fires $KEY-changed
+		 * @param  {String} key   Key to set
+		 * @param  {Object} value Value to set
+		 */
 		set(key, value) { return this._reloadSettings(() => {
 			settings.override(null, key, value);
-			return this.emitter.emit(key + '-changed', value);
-		}
-		); }
+			this.emitter.emit(key + '-changed', value);
+		}); }
 
-		// Get local (current window's) key's value
+		/**
+		 * Get local (current window's) key's value
+		 *
+		 * @param  {String} key Key name
+		 * @return {Object}     Key value
+		 */
 		getLocal(key) {
 			if (window.localSettings) {
 				return window.localSettings[key];
@@ -60,52 +94,95 @@ export default class ProfileManager {
 			return null;
 		}
 
-		// Set local (current window's) key to value
+		/**
+		 * Set local (current window's) key to value
+		 *
+		 * @fires $KEY-changed
+		 * @param  {String} key   Key to set
+		 * @param  {Object} value Value to set
+		 */
 		setLocal(key, value) {
 			if (!window.localSettings) {
 				window.localSettings = {};
 			}
 
 			window.localSettings[key] = value;
-			return this.emitter.emit(key + '-changed', value);
+			this.emitter.emit(key + '-changed', value);
 		}
 
-		// Set current device's ID and name
+		/**
+		 * Set current device's ID and name
+		 *
+		 * @param {String} id   Device ID
+		 * @param {String} name Device name
+		 *
+		 */
 		setCurrentDevice(id, name) {
 			this.setLocal('current-device', id);
-			return this.setLocal('current-device-name', name);
+			this.setLocal('current-device-name', name);
 		}
 
-		// Clear current core
+		/**
+		 * Clear current device
+		 */
 		clearCurrentDevice() {
-			return this.setCurrentDevice(null, null);
+			this.setCurrentDevice(null, null);
 		}
 
+		/**
+		 * Check if a device is currently selected
+		 *
+		 * @return {Boolean} `true` if there is a device currently selected
+		 */
 		get hasCurrentDevice() {
 			return !!this.getLocal('current-device');
 		}
 
-		// API base URL
+		/**
+		 * Get API base URL
+		 *
+		 * @return {String} API base URL
+		 */
 		get apiUrl() {
 			return this.get('apiUrl');
 		}
 
+		/**
+		 * Set API base URL. This will change it in profile making it available
+		 * in the CLI too.
+		 *
+		 * @param  {String} apiUrl New API base URL
+		 */
 		set apiUrl(apiUrl) {
-			return this.set('apiUrl', apiUrl);
+			this.set('apiUrl', apiUrl);
 		}
 
-		// Current platform ID
+		/**
+		 * Get current platform ID
+		 *
+		 * @return {Number} platform ID
+		 */
 		get currentTargetPlatform() {
 			// Default to a Photon
 			let left;
 			return (left = this.getLocal('current-target-platform')) != null ? left : 6;
 		}
 
+		/**
+		 * Set current platform ID
+		 *
+		 * @param  {Number} platformId New platform ID
+		 */
 		set currentTargetPlatform(platformId) {
-			return this.setLocal('current-target-platform', platformId);
+			this.setLocal('current-target-platform', platformId);
 		}
 
-		// Known platforms
+		/**
+		 * Return list of known platforms
+		 *
+		 * @readonly
+		 * @return {Object} List of platforms where key is platform ID
+		 */
 		get knownTargetPlatforms() {
 			return {
 				0: {
@@ -138,17 +215,27 @@ export default class ProfileManager {
 			};
 		}
 
-		// Current platform name
+		/**
+		 * Get current platform name
+		 *
+		 * @return {String} Name of the currently selected platform
+		 */
 		get currentTargetPlatformName() {
 			return this.knownTargetPlatforms[this.currentTargetPlatform].name;
 		}
 
-		onCurrentTargetPlatformChanged(callback) {
-			return this.emitter.on('current-target-platform-changed', callback);
+		/**
+		 * Add callback to specific event
+		 *
+		 * @param {String}   event    Name of the event
+		 * @param {Function} callback Callback to be called when event is triggered
+		 */
+		on(event, callback) {
+			this.emitter.on(event, callback);
 		}
 
-		on(event, callback) {
-			return this.emitter.on(event, callback);
+		_onCurrentTargetPlatformChanged(callback) {
+			this.emitter.on('current-target-platform-changed', callback);
 		}
 
 		// Decorator which forces settings to be reloaded

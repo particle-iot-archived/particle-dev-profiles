@@ -28,7 +28,7 @@ export default class ProfilesTile extends View {
 		);
 		this.subscriptions.add(atom.tooltips.add(this.targetPlatform, {title: 'Click to change target platform'}));
 
-		this.subscriptions.add(this.profileManager.onCurrentTargetPlatformChanged(newTargetPlatform => {
+		this.subscriptions.add(this.profileManager._onCurrentTargetPlatformChanged(newTargetPlatform => {
 			return this.targetPlatform.text(this.profileManager.knownTargetPlatforms[newTargetPlatform].name);
 		}
 		)

@@ -1,5 +1,5 @@
-/* global atom */
 'use babel';
+/* global atom */
 
 import { View } from 'atom-space-pen-views';
 let CompositeDisposable = null;

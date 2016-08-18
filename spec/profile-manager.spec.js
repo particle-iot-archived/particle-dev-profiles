@@ -28,12 +28,13 @@ describe('Profile Manager', () => {
 
 			manager.currentProfile = 'particle';
 			let client1 = manager.apiClient;
+
 			expect(client1.auth).to.equal(manager.get('access_token'));
 
 			manager.currentProfile = 'local';
 			let client2 = manager.apiClient;
 			expect(client2.auth).to.equal(manager.get('access_token'));
-
+			expect(client2.api.baseUrl).to.equal(manager.get('apiUrl'));
 			expect(client1.auth).not.to.equal(client2.auth);
 
 			manager.currentProfile = 'particle';

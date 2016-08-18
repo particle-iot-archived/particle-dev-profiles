@@ -1,6 +1,6 @@
 'use babel';
 
-import Client from 'particle-api-js';
+import Api from 'particle-api-js';
 let Emitter;
 let path;
 let settingsPath;
@@ -251,9 +251,15 @@ export default class ProfileManager {
 			return this._apiClient;
 		}
 
-		this._apiClient = new Client({
+		let options = {
 			auth: this.get('access_token')
-		});
+		};
+		if (this.get('apiUrl')) {
+			options.baseUrl = this.get('apiUrl');
+		}
+
+		let api = new Api(options);
+		this._apiClient = api.client(options);
 
 		return this._apiClient;
 	}

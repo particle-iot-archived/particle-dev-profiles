@@ -1,7 +1,7 @@
 {
   "name": "particle-dev-profiles",
   "main": "./src/main",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Particle Dev support for profiles and basic Particle Cloud authentication",
   "keywords": [],
   "activationCommands": {},

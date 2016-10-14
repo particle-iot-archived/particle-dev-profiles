@@ -9,8 +9,7 @@ export default class ProfilesTile extends View {
 	static content() {
 		return this.span({class: 'inline-block'}, () => {
 			return this.span({type: 'button', class: 'icon icon-milestone inline-block', outlet: 'targetPlatform'}, 'Unknown');
-		}
-		);
+		});
 	}
 
 	initialize(statusBar, profileManager) {
@@ -20,7 +19,8 @@ export default class ProfilesTile extends View {
 
 		this.subscriptions = new CompositeDisposable();
 
-		this.subscriptions.add(this.targetPlatform.on('click', () => {
+		// On click handler
+		this.targetPlatform.on('click', () => {
 			if (typeof SelectTargetPlatformView === 'undefined' || SelectTargetPlatformView === null) {
 				SelectTargetPlatformView = require('./select-target-platform-view');
 			}
@@ -28,16 +28,15 @@ export default class ProfilesTile extends View {
 				this.selectTargetPlatformView = new SelectTargetPlatformView(this.profileManager);
 			}
 			return this.selectTargetPlatformView.show();
-		}
-		)
-		);
+		});
+
+		// Tooltip
 		this.subscriptions.add(atom.tooltips.add(this.targetPlatform, {title: 'Click to change target platform'}));
 
-		this.subscriptions.add(this.profileManager._onCurrentTargetPlatformChanged(newTargetPlatform => {
+		// Change current platform handler
+		this.profileManager._onCurrentTargetPlatformChanged(newTargetPlatform => {
 			return this.targetPlatform.text(this.profileManager.knownTargetPlatforms[newTargetPlatform].name);
-		}
-		)
-		);
+		});
 		this.targetPlatform.text(this.profileManager.currentTargetPlatformName);
 
 		return this.attach();

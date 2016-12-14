@@ -13,8 +13,8 @@
   "dependencies": {
     "atom-space-pen-views": "^2.0.0",
     "event-kit": "^1.0.0",
-    "fs-plus": "^2.3.0",
-    "particle-api-js": "^6.1.0",
+    "fs-plus": "^2.9.3",
+    "particle-api-js": "^6.4.0",
     "particle-cli": "git://github.com/spark/particle-cli.git#feature/no-serialport",
     "particle-dev-views": "git://github.com/spark/particle-dev-views.git#v0.0.3"
   },
@@ -40,11 +40,11 @@
     }
   },
   "devDependencies": {
-    "atom-mocha-test-runner": "^0.2.2",
-    "babel-eslint": "^6.1.2",
+    "atom-mocha-test-runner": "^0.3.1",
+    "babel-eslint": "^7.1.1",
     "chai": "^3.5.0",
-    "documentation": "^4.0.0-beta9",
-    "eslint": "^2.13.1",
+    "documentation": "^4.0.0-beta16",
+    "eslint": "^3.12.1",
     "eslint-config-particle": "^1.0.5",
     "proxyquire": "^1.7.2"
   }

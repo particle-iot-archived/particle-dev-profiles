@@ -14,7 +14,7 @@
     "atom-space-pen-views": "^2.0.0",
     "event-kit": "^1.0.0",
     "fs-plus": "^2.9.3",
-    "particle-api-js": "^6.4.0",
+    "particle-api-js": "^6.4.1",
     "particle-cli": "git://github.com/spark/particle-cli.git#feature/no-serialport",
     "particle-dev-views": "git://github.com/spark/particle-dev-views.git#v0.0.3"
   },

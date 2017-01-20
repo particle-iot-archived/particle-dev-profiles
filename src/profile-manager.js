@@ -211,6 +211,9 @@ export default class ProfileManager {
 			10: {
 				name: 'Electron'
 			},
+			31: {
+				name: 'Raspberry Pi'
+			},
 			82: {
 				name: 'Digistump Oak'
 			},

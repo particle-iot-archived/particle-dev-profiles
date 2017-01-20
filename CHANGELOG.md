@@ -1,3 +1,6 @@
+## 0.1.13
+* Add Raspberry Pi platform
+
 ## 0.1.12
 * Update `particle-api-js` to 6.4.2
 

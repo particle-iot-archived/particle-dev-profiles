@@ -1,8 +1,10 @@
 'use babel';
 
 import Api from 'particle-api-js';
+import {File} from 'atom';
 let Emitter;
 let path;
+let fs;
 let settingsPath;
 let settings;
 let utilities;
@@ -11,15 +13,20 @@ export default class ProfileManager {
 	constructor() {
 		({Emitter} = require('event-kit'));
 		path = require('path');
+		fs = require('fs-plus');
 		settingsPath = 'particle-cli/settings.js';
 		settings = require(settingsPath);
 		utilities = require('particle-cli/lib/utilities.js');
 
 		this.emitter = new Emitter();
+		this._watchConfig();
+		this._watchProfile();
 	}
 
 	destroy() {
-		return this.emitter.dispose();
+		this.emitter.dispose();
+		this.configWatcher.dispose();
+		this.profileWatcher.dispose();
 	}
 
 	/**
@@ -287,5 +294,39 @@ export default class ProfileManager {
 		delete require.cache[require.resolve(settingsPath)];
 		settings = require(settingsPath);
 		return callback();
+	}
+
+	_watchConfig() {
+		let particleDir = settings.ensureFolder();
+		let configFile = path.join(particleDir, 'profile.json');
+
+		if (!fs.existsSync(configFile)) {
+			fs.writeFileSync(configFile, '{}');
+			console.log('Created main config file', configFile);
+		}
+
+		this.configWatcher = new File(configFile);
+		this.configWatcher.onDidChange(() => {
+			this._apiClient = undefined;
+			this.emitter.emit('current-profile-changed', this.currentProfile);
+			console.log('Profile changed to', this.currentProfile);
+		});
+	}
+
+	_watchProfile() {
+		this.currentProfile;
+		let profileFile = settings.findOverridesFile();
+
+		if (!fs.existsSync(profileFile)) {
+			fs.writeFileSync(profileFile, '{}');
+			console.log('Created profile file', profileFile);
+		}
+
+		this.profileWatcher = new File(profileFile);
+		this.profileWatcher.onDidChange(() => {
+			this._apiClient = undefined;
+			this.emitter.emit('current-profile-updated');
+			console.log('Profile updated');
+		});
 	}
 };

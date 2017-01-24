@@ -1,3 +1,6 @@
+## 0.1.14
+* Watch for changes in current config/profile
+
 ## 0.1.13
 * Add Raspberry Pi platform
 

@@ -22,7 +22,7 @@ export default class SelectTargetPlatformView extends SelectView {
 		let items = [];
 		for (let k in this.profileManager.knownTargetPlatforms) {
 			let v = this.profileManager.knownTargetPlatforms[k];
-			v.id = k;
+			v.id = parseInt(k);
 			items.push(v);
 		}
 		this.setItems(items);

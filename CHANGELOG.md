@@ -1,3 +1,6 @@
+## 0.1.15
+* Update `particle-api-js` to 6.4.3
+
 ## 0.1.14
 * Watch for changes in current config/profile
 

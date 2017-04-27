@@ -5,20 +5,14 @@ import {File} from 'atom';
 let Emitter;
 let path;
 let fs;
-let settingsPath;
-let settings;
-let utilities;
 
 export default class ProfileManager {
 	constructor() {
 		({Emitter} = require('event-kit'));
 		path = require('path');
 		fs = require('fs-plus');
-		settingsPath = 'particle-cli/settings.js';
-		settings = require(settingsPath);
-		utilities = require('particle-cli/lib/utilities.js');
-
 		this.emitter = new Emitter();
+		this._reloadSettings();
 		this._watchConfig();
 		this._watchProfile();
 	}
@@ -36,13 +30,7 @@ export default class ProfileManager {
 	 * @return {Array} list of profile names
 	 */
 	get profiles() {
-		let particleDir = settings.ensureFolder();
-		let configFileSuffix = '.config.json';
-		let files = utilities.globList(null, [
-			path.join(particleDir, `*${configFileSuffix}`)
-		]);
-		files = files.filter(file => file.endsWith(configFileSuffix));
-		return files.map(file => path.basename(file).replace(configFileSuffix, ''));
+		return this.settings.listConfigs();
 	}
 
 	/**
@@ -52,9 +40,7 @@ export default class ProfileManager {
 	 * @return {String} profile name
 	 */
 	get currentProfile() {
-		return this._reloadSettings(function afterReload() {
-			delete require.cache[require.resolve(settingsPath)];
-			settings = require(settingsPath);
+		return this._reloadSettings(function afterReload(settings) {
 			return settings.profile;
 		});
 	}
@@ -69,7 +55,7 @@ export default class ProfileManager {
 	set currentProfile(profile) {
 		this._apiClient = undefined;
 
-		settings.switchProfile(profile);
+		this.settings.switchProfile(profile);
 		this.emitter.emit('current-profile-changed', profile);
 	}
 
@@ -80,7 +66,7 @@ export default class ProfileManager {
 	 * @return {Object}     Key value
 	 */
 	get(key) {
-		return this._reloadSettings(() => settings[key]);
+		return this._reloadSettings(() => this.settings.get(key));
 	}
 
 	/**
@@ -93,7 +79,7 @@ export default class ProfileManager {
 	 */
 	set(key, value) {
 		return this._reloadSettings(() => {
-			settings.override(null, key, value);
+			this.settings.override(null, key, value);
 			this.emitter.emit(key + '-changed', value);
 		});
 	}
@@ -205,6 +191,7 @@ export default class ProfileManager {
 	 * @return {Object} List of platforms where key is platform ID
 	 */
 	get knownTargetPlatforms() {
+		// todo - these are also in particle-commands and particle-cli - consolidate
 		return {
 			0: {
 				name: 'Core',
@@ -291,13 +278,12 @@ export default class ProfileManager {
 
 	// Decorator which forces settings to be reloaded
 	_reloadSettings(callback) {
-		delete require.cache[require.resolve(settingsPath)];
-		settings = require(settingsPath);
-		return callback();
+		this.settings = require('particle-commands').settings.buildSettings(false, {});
+		return callback && callback(this.settings);
 	}
 
 	_watchConfig() {
-		let particleDir = settings.ensureFolder();
+		let particleDir = this.settings.ensureFolder();
 		let configFile = path.join(particleDir, 'profile.json');
 
 		if (!fs.existsSync(configFile)) {
@@ -315,7 +301,7 @@ export default class ProfileManager {
 
 	_watchProfile() {
 		this.currentProfile;
-		let profileFile = settings.findOverridesFile();
+		let profileFile = this.settings.findOverridesFile();
 
 		if (!fs.existsSync(profileFile)) {
 			fs.writeFileSync(profileFile, '{}');

@@ -1,16 +1,16 @@
 'use babel';
 
 import Api from 'particle-api-js';
-import {File} from 'atom';
 let Emitter;
 let path;
 let fs;
 
 export default class ProfileManager {
-	constructor() {
-		({Emitter} = require('event-kit'));
+	constructor(File = require('atom').File) {
+		({ Emitter } = require('event-kit'));
 		path = require('path');
 		fs = require('fs-plus');
+		this.File = File;
 		this.emitter = new Emitter();
 		this._reloadSettings();
 		this._watchConfig();
@@ -82,6 +82,10 @@ export default class ProfileManager {
 			this.settings.override(null, key, value);
 			this.emitter.emit(key + '-changed', value);
 		});
+	}
+
+	fetchUpdate(key) {
+		return this.settings.fetchUpdate(key);
 	}
 
 	/**
@@ -291,12 +295,15 @@ export default class ProfileManager {
 			console.log('Created main config file', configFile);
 		}
 
-		this.configWatcher = new File(configFile);
-		this.configWatcher.onDidChange(() => {
-			this._apiClient = undefined;
-			this.emitter.emit('current-profile-changed', this.currentProfile);
-			console.log('Profile changed to', this.currentProfile);
-		});
+		const File = this.File;
+		if (File) {
+			this.configWatcher = new File(configFile);
+			this.configWatcher.onDidChange(() => {
+				this._apiClient = undefined;
+				this.emitter.emit('current-profile-changed', this.currentProfile);
+				console.log('Profile changed to', this.currentProfile);
+			});
+		}
 	}
 
 	_watchProfile() {
@@ -307,12 +314,14 @@ export default class ProfileManager {
 			fs.writeFileSync(profileFile, '{}');
 			console.log('Created profile file', profileFile);
 		}
-
-		this.profileWatcher = new File(profileFile);
-		this.profileWatcher.onDidChange(() => {
-			this._apiClient = undefined;
-			this.emitter.emit('current-profile-updated');
-			console.log('Profile updated');
-		});
+		const File = this.File;
+		if (File) {
+			this.profileWatcher = new File(profileFile);
+			this.profileWatcher.onDidChange(() => {
+				this._apiClient = undefined;
+				this.emitter.emit('current-profile-updated');
+				console.log('Profile updated');
+			});
+		}
 	}
-};
+}

@@ -21,6 +21,7 @@
   "scripts": {
     "docs": "./docs.sh",
     "lint": "eslint -f unix {spec,src}/**/*.js",
+    "lint:fix": "eslint --fix -f unix {spec,src}/**/*.js",
     "test": "atom --test spec/"
   },
   "atomTestRunner": "./spec/runner.js",

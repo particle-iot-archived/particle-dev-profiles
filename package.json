@@ -29,7 +29,7 @@
     "particle-dev-profiles": {
       "description": "Switching between profiles and Particle Cloud authentication",
       "versions": {
-        "0.0.1": "provideParticleDevProfiles"
+        "0.0.2": "provideParticleDevProfiles"
       }
     }
   },

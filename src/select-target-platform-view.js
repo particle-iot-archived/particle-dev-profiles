@@ -14,7 +14,7 @@ export default class SelectTargetPlatformView extends SelectView {
 		this.profileManager = profileManager;
 		super.initialize(...arguments);
 
-		({$$} = require('atom-space-pen-views'));
+		({ $$ } = require('atom-space-pen-views'));
 		return this.prop('id', 'particle-dev-select-target-platform-view');
 	}
 
@@ -43,4 +43,4 @@ export default class SelectTargetPlatformView extends SelectView {
 	getFilterKey() {
 		return 'name';
 	}
-};
+}

@@ -7,15 +7,15 @@ let SelectTargetPlatformView = null;
 
 export default class ProfilesTile extends View {
 	static content() {
-		return this.span({class: 'inline-block'}, () => {
-			return this.span({type: 'button', class: 'icon icon-milestone inline-block', outlet: 'targetPlatform'}, 'Unknown');
+		return this.span({ class: 'inline-block' }, () => {
+			return this.span({ type: 'button', class: 'icon icon-milestone inline-block', outlet: 'targetPlatform' }, 'Unknown');
 		});
 	}
 
 	initialize(statusBar, profileManager) {
 		this.statusBar = statusBar;
 		this.profileManager = profileManager;
-		({CompositeDisposable} = require('atom'));
+		({ CompositeDisposable } = require('atom'));
 
 		this.subscriptions = new CompositeDisposable();
 
@@ -31,7 +31,7 @@ export default class ProfilesTile extends View {
 		});
 
 		// Tooltip
-		this.subscriptions.add(atom.tooltips.add(this.targetPlatform, {title: 'Click to change target platform'}));
+		this.subscriptions.add(atom.tooltips.add(this.targetPlatform, { title: 'Click to change target platform' }));
 
 		// Change current platform handler
 		this.profileManager._onCurrentTargetPlatformChanged(newTargetPlatform => {
@@ -43,13 +43,13 @@ export default class ProfilesTile extends View {
 	}
 
 	attach() {
-		return this.statusBar.addLeftTile({item: this, priority: 200});
+		return this.statusBar.addLeftTile({ item: this, priority: 200 });
 	}
 
 	detached() {
 		return __guard__(this.subscriptions, x => x.dispose());
 	}
-};
+}
 
 function __guard__(value, transform) {
 	return (typeof value !== 'undefined' && value !== null) ? transform(value) : undefined;

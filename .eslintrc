@@ -10,8 +10,10 @@
   },
   "rules": {
     "no-var": 2,
-    "valid-jsdoc": [2, {
-      "requireReturnDescription": true
-    }]
+    "valid-jsdoc": [2,
+      {
+        "requireReturnDescription": true
+      }],
+    "no-console": 0
   }
 }

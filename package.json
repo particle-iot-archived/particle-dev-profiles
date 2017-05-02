@@ -15,12 +15,13 @@
     "event-kit": "^1.0.0",
     "fs-plus": "^2.9.3",
     "particle-api-js": "^6.4.3",
-    "particle-cli": "git://github.com/spark/particle-cli.git#feature/no-serialport",
+    "particle-commands": "git://github.com/spark/particle-commands.git#feature/metrics",
     "particle-dev-views": "git://github.com/spark/particle-dev-views.git#v0.0.3"
   },
   "scripts": {
     "docs": "./docs.sh",
     "lint": "eslint -f unix {spec,src}/**/*.js",
+    "lint:fix": "eslint --fix -f unix {spec,src}/**/*.js",
     "test": "atom --test spec/"
   },
   "atomTestRunner": "./spec/runner.js",
@@ -28,7 +29,7 @@
     "particle-dev-profiles": {
       "description": "Switching between profiles and Particle Cloud authentication",
       "versions": {
-        "0.0.1": "provideParticleDevProfiles"
+        "0.0.2": "provideParticleDevProfiles"
       }
     }
   },
@@ -42,10 +43,12 @@
   "devDependencies": {
     "atom-mocha-test-runner": "^0.3.1",
     "babel-eslint": "^7.1.1",
+    "babel-plugin-add-module-exports": "^0.2.1",
     "chai": "^3.5.0",
     "documentation": "^4.0.0-beta16",
     "eslint": "^3.12.1",
     "eslint-config-particle": "^1.0.5",
+    "pathwatcher": "^7.0.0",
     "proxyquire": "^1.7.2"
   }
 }

@@ -7,7 +7,7 @@ export default {
 	subscriptions: null,
 
 	activate(state) {
-		({CompositeDisposable} = require('atom'));
+		({ CompositeDisposable } = require('atom'));
 		ProfileManager = require('./profile-manager');
 
 		this.subscriptions = new CompositeDisposable();

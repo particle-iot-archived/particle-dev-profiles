@@ -14,8 +14,8 @@
     "atom-space-pen-views": "^2.0.0",
     "event-kit": "^1.0.0",
     "fs-plus": "^2.9.3",
-    "particle-api-js": "^6.4.3",
-    "particle-commands": "git://github.com/spark/particle-commands.git#feature/metrics",
+    "particle-api-js": "^6.5.0",
+    "particle-commands": "^0.2.12",
     "particle-dev-views": "git://github.com/spark/particle-dev-views.git#v0.0.3"
   },
   "scripts": {

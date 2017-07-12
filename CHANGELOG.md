@@ -1,3 +1,9 @@
+## 0.1.16
+* Add `isLoggedIn` method
+* Add `platform` and `defaultBuildTarget` properties to current device
+* Update `particle-api-js` to 6.5.0
+* Update `particle-commands` to 0.2.12
+
 ## 0.1.15
 * Update `particle-api-js` to 6.4.3
 

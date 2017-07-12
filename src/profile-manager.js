@@ -1,6 +1,7 @@
 'use babel';
 
 import Api from 'particle-api-js';
+import Device from './objects/Device';
 let Emitter;
 let path;
 let fs;
@@ -10,11 +11,15 @@ export default class ProfileManager {
 		({ Emitter } = require('event-kit'));
 		path = require('path');
 		fs = require('fs-plus');
+
 		this.File = File;
 		this.emitter = new Emitter();
 		this._reloadSettings();
 		this._watchConfig();
 		this._watchProfile();
+
+		// Export Device object
+		this.Device = Device;
 	}
 
 	destroy() {
@@ -119,25 +124,22 @@ export default class ProfileManager {
 	}
 
 	/**
-	 * Set current device's ID and name
+	 * Get current device
 	 *
-	 * @param {String} id   Device ID
-	 * @param {String} name Device name
-	 * @return {undefined}
-	 *
+	 * @return {Device} Device object
 	 */
-	setCurrentDevice(id, name) {
-		this.setLocal('current-device', id);
-		this.setLocal('current-device-name', name);
+	get currentDevice() {
+		let serialized = this.getLocal('current-device');
+		return serialized ? Device.deserialize(serialized) : null;
 	}
 
 	/**
-	 * Clear current device
+	 * Set current device
 	 *
-	 * @return {undefined}
+	 * @param  {Device} device New device selected
 	 */
-	clearCurrentDevice() {
-		this.setCurrentDevice(null, null);
+	set currentDevice(device) {
+		this.setLocal('current-device', device ? device.serialize() : null);
 	}
 
 	/**
@@ -146,7 +148,14 @@ export default class ProfileManager {
 	 * @return {Boolean} `true` if there is a device currently selected
 	 */
 	get hasCurrentDevice() {
-		return !!this.getLocal('current-device');
+		return !!this.currentDevice;
+	}
+
+	/**
+	 * Clear stored current device
+	 */
+	clearCurrentDevice() {
+		this.currentDevice = null;
 	}
 
 	/**
@@ -166,6 +175,61 @@ export default class ProfileManager {
 	 */
 	set apiUrl(apiUrl) {
 		this.set('apiUrl', apiUrl);
+	}
+
+	/**
+	 * Get the access token
+	 *
+	 * @return {String} Access token
+	 */
+	get accessToken() {
+		return this.get('access_token');
+	}
+
+	/**
+	 * Set the access token
+	 *
+	 * @param {String} accessToken The new access token
+	 */
+	set accessToken(accessToken) {
+		this.set('access_token', accessToken);
+	}
+
+	/**
+	 * Clear stored credentials
+	 *
+	 * @return {undefined}
+	 */
+	clearCredentials() {
+		this.username = null;
+		this.accessToken = null;
+	}
+
+	/**
+	 * Check if user's access token is stored in current profile
+	 *
+	 * @return {Boolean} `true` if access token is stored
+	 */
+	get isLoggedIn() {
+		return !!this.accessToken;
+	}
+
+	/**
+	 * Get the username
+	 *
+	 * @return {String} Username
+	 */
+	get username() {
+		return this.get('username');
+	}
+
+	/**
+	 * Set the username
+	 *
+	 * @param {String} username The new username
+	 */
+	set username(username) {
+		this.set('username', username);
 	}
 
 	/**

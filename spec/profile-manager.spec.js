@@ -70,7 +70,7 @@ describe('Profile Manager', () => {
 		it('retrieves the value of a variable', () => {
 			const manager = createProfileManager();
 			manager.currentProfile = 'local';
-			expect(manager.get('email')).eql('foo@bar.io');
+			expect(manager.get('username')).eql('foo@bar.io');
 		});
 	});
 

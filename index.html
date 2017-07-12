@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset='utf-8' />
-  <title>  | Documentation</title>
+  <title>particle-dev-profiles 0.2.0 | Documentation</title>
   <meta name='viewport' content='width=device-width,initial-scale=1'>
   <link href='assets/bass.css' type='text/css' rel='stylesheet' />
   <link href='assets/style.css' type='text/css' rel='stylesheet' />
@@ -13,8 +13,8 @@
     <div class='clearfix md-mxn2'>
       <div class='fixed xs-hide fix-3 overflow-auto max-height-100'>
         <div class='py1 px2'>
-          <h3 class='mb0 no-anchor'></h3>
-          <div class='mb1'><code></code></div>
+          <h3 class='mb0 no-anchor'>particle-dev-profiles</h3>
+          <div class='mb1'><code>0.2.0</code></div>
           <input
             placeholder='Filter'
             id='filter-input'
@@ -95,9 +95,9 @@
               
                 
                 <li><a
-                  href='#setcurrentdevice'
+                  href='#currentdevice'
                   class="">
-                  setCurrentDevice
+                  currentDevice
                   
                 </a>
                 
@@ -105,9 +105,9 @@
               
                 
                 <li><a
-                  href='#clearcurrentdevice'
+                  href='#currentdevice'
                   class="">
-                  clearCurrentDevice
+                  currentDevice
                   
                 </a>
                 
@@ -125,6 +125,16 @@
               
                 
                 <li><a
+                  href='#clearcurrentdevice'
+                  class="">
+                  clearCurrentDevice
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
                   href='#apiurl'
                   class="">
                   apiUrl
@@ -138,6 +148,66 @@
                   href='#apiurl'
                   class="">
                   apiUrl
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#accesstoken'
+                  class="">
+                  accessToken
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#accesstoken'
+                  class="">
+                  accessToken
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#clearcredentials'
+                  class="">
+                  clearCredentials
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#isloggedin'
+                  class="">
+                  isLoggedIn
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#username'
+                  class="">
+                  username
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#username'
+                  class="">
+                  username
                   
                 </a>
                 
@@ -217,9 +287,11 @@
 
   
   <div class='clearfix'>
+    
     <h3 class='fl m0' id='profiles'>
       profiles
     </h3>
+    
     
   </div>
   
@@ -228,9 +300,10 @@
 
 
   <div class='pre p1 fill-light mt0'>profiles</div>
-
+  
   
 
+  
   
   
   
@@ -269,9 +342,11 @@
 
   
   <div class='clearfix'>
+    
     <h3 class='fl m0' id='currentprofile'>
       currentProfile
     </h3>
+    
     
   </div>
   
@@ -280,9 +355,10 @@
 
 
   <div class='pre p1 fill-light mt0'>currentProfile</div>
-
+  
   
 
+  
   
   
   
@@ -321,9 +397,11 @@
 
   
   <div class='clearfix'>
+    
     <h3 class='fl m0' id='currentprofile'>
       currentProfile
     </h3>
+    
     
   </div>
   
@@ -332,9 +410,10 @@
 
 
   <div class='pre p1 fill-light mt0'>currentProfile</div>
-
+  
   
 
+  
   
   
   
@@ -347,7 +426,8 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>profile</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> Name of the profile to set
+            <span class='code bold'>profile</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+	    Name of the profile to set
 
           </div>
           
@@ -378,9 +458,11 @@
 
   
   <div class='clearfix'>
+    
     <h3 class='fl m0' id='get'>
       get
     </h3>
+    
     
   </div>
   
@@ -389,9 +471,10 @@
 
 
   <div class='pre p1 fill-light mt0'>get(key: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></div>
-
+  
   
 
+  
   
   
   
@@ -404,7 +487,8 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>key</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> Key name
+            <span class='code bold'>key</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+	    Key name
 
           </div>
           
@@ -443,9 +527,11 @@
 
   
   <div class='clearfix'>
+    
     <h3 class='fl m0' id='set'>
       set
     </h3>
+    
     
   </div>
   
@@ -454,9 +540,10 @@
 
 
   <div class='pre p1 fill-light mt0'>set(key: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></div>
-
+  
   
 
+  
   
   
   
@@ -469,7 +556,8 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>key</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> Key to set
+            <span class='code bold'>key</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+	    Key to set
 
           </div>
           
@@ -477,7 +565,8 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>value</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code> Value to set
+            <span class='code bold'>value</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+	    Value to set
 
           </div>
           
@@ -493,6 +582,7 @@
       <div class='py1 quiet mt1 prose-big'>Returns</div>
       <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></code>:
         
+
       
     
   
@@ -515,20 +605,23 @@
 
   
   <div class='clearfix'>
+    
     <h3 class='fl m0' id='getlocal'>
       getLocal
     </h3>
     
+    
   </div>
   
 
-  <p>Get local (current window&#x27;s) key&#x27;s value</p>
+  <p>Get local (current window's) key's value</p>
 
 
   <div class='pre p1 fill-light mt0'>getLocal(key: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></div>
-
+  
   
 
+  
   
   
   
@@ -541,7 +634,8 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>key</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> Key name
+            <span class='code bold'>key</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+	    Key name
 
           </div>
           
@@ -580,20 +674,23 @@
 
   
   <div class='clearfix'>
+    
     <h3 class='fl m0' id='setlocal'>
       setLocal
     </h3>
     
+    
   </div>
   
 
-  <p>Set local (current window&#x27;s) key to value</p>
+  <p>Set local (current window's) key to value</p>
 
 
   <div class='pre p1 fill-light mt0'>setLocal(key: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></div>
-
+  
   
 
+  
   
   
   
@@ -606,7 +703,8 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>key</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> Key to set
+            <span class='code bold'>key</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+	    Key to set
 
           </div>
           
@@ -614,7 +712,8 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>value</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code> Value to set
+            <span class='code bold'>value</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+	    Value to set
 
           </div>
           
@@ -630,6 +729,7 @@
       <div class='py1 quiet mt1 prose-big'>Returns</div>
       <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></code>:
         
+
       
     
   
@@ -652,20 +752,78 @@
 
   
   <div class='clearfix'>
-    <h3 class='fl m0' id='setcurrentdevice'>
-      setCurrentDevice
+    
+    <h3 class='fl m0' id='currentdevice'>
+      currentDevice
     </h3>
+    
     
   </div>
   
 
-  <p>Set current device&#x27;s ID and name</p>
+  <p>Get current device</p>
 
 
-  <div class='pre p1 fill-light mt0'>setCurrentDevice(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></div>
+  <div class='pre p1 fill-light mt0'>currentDevice</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
 
   
 
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>Device</code>:
+        Device object
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='currentdevice'>
+      currentDevice
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Set current device</p>
+
+
+  <div class='pre p1 fill-light mt0'>currentDevice</div>
+  
+  
+
+  
   
   
   
@@ -678,15 +836,8 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>id</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> Device ID
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>name</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> Device name
+            <span class='code bold'>device</span> <code class='quiet'>(Device)</code>
+	    New device selected
 
           </div>
           
@@ -698,13 +849,6 @@
   
 
   
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></code>:
-        
-      
-    
-  
 
   
 
@@ -724,60 +868,11 @@
 
   
   <div class='clearfix'>
-    <h3 class='fl m0' id='clearcurrentdevice'>
-      clearCurrentDevice
-    </h3>
     
-  </div>
-  
-
-  <p>Clear current device</p>
-
-
-  <div class='pre p1 fill-light mt0'>clearCurrentDevice(): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></div>
-
-  
-
-  
-  
-  
-  
-  
-
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></code>:
-        
-      
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-            <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
     <h3 class='fl m0' id='hascurrentdevice'>
       hasCurrentDevice
     </h3>
+    
     
   </div>
   
@@ -786,9 +881,10 @@
 
 
   <div class='pre p1 fill-light mt0'>hasCurrentDevice</div>
-
+  
   
 
+  
   
   
   
@@ -828,9 +924,58 @@
 
   
   <div class='clearfix'>
+    
+    <h3 class='fl m0' id='clearcurrentdevice'>
+      clearCurrentDevice
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Clear stored current device</p>
+
+
+  <div class='pre p1 fill-light mt0'>clearCurrentDevice()</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
     <h3 class='fl m0' id='apiurl'>
       apiUrl
     </h3>
+    
     
   </div>
   
@@ -839,9 +984,10 @@
 
 
   <div class='pre p1 fill-light mt0'>apiUrl</div>
-
+  
   
 
+  
   
   
   
@@ -880,9 +1026,11 @@
 
   
   <div class='clearfix'>
+    
     <h3 class='fl m0' id='apiurl'>
       apiUrl
     </h3>
+    
     
   </div>
   
@@ -892,9 +1040,10 @@ in the CLI too.</p>
 
 
   <div class='pre p1 fill-light mt0'>apiUrl</div>
-
+  
   
 
+  
   
   
   
@@ -907,7 +1056,8 @@ in the CLI too.</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>apiUrl</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> New API base URL
+            <span class='code bold'>apiUrl</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+	    New API base URL
 
           </div>
           
@@ -938,9 +1088,354 @@ in the CLI too.</p>
 
   
   <div class='clearfix'>
+    
+    <h3 class='fl m0' id='accesstoken'>
+      accessToken
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Get the access token</p>
+
+
+  <div class='pre p1 fill-light mt0'>accessToken</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>:
+        Access token
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='accesstoken'>
+      accessToken
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Set the access token</p>
+
+
+  <div class='pre p1 fill-light mt0'>accessToken</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>accessToken</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+	    The new access token
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='clearcredentials'>
+      clearCredentials
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Clear stored credentials</p>
+
+
+  <div class='pre p1 fill-light mt0'>clearCredentials(): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='isloggedin'>
+      isLoggedIn
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Check if user's access token is stored in current profile</p>
+
+
+  <div class='pre p1 fill-light mt0'>isLoggedIn</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>:
+        <code>true</code>
+ if access token is stored
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='username'>
+      username
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Get the username</p>
+
+
+  <div class='pre p1 fill-light mt0'>username</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>:
+        Username
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='username'>
+      username
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Set the username</p>
+
+
+  <div class='pre p1 fill-light mt0'>username</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>username</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+	    The new username
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
     <h3 class='fl m0' id='currenttargetplatform'>
       currentTargetPlatform
     </h3>
+    
     
   </div>
   
@@ -949,9 +1444,10 @@ in the CLI too.</p>
 
 
   <div class='pre p1 fill-light mt0'>currentTargetPlatform</div>
-
+  
   
 
+  
   
   
   
@@ -990,9 +1486,11 @@ in the CLI too.</p>
 
   
   <div class='clearfix'>
+    
     <h3 class='fl m0' id='currenttargetplatform'>
       currentTargetPlatform
     </h3>
+    
     
   </div>
   
@@ -1001,9 +1499,10 @@ in the CLI too.</p>
 
 
   <div class='pre p1 fill-light mt0'>currentTargetPlatform</div>
-
+  
   
 
+  
   
   
   
@@ -1016,7 +1515,8 @@ in the CLI too.</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>platformId</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>)</code> New platform ID
+            <span class='code bold'>platformId</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>)</code>
+	    New platform ID
 
           </div>
           
@@ -1047,9 +1547,11 @@ in the CLI too.</p>
 
   
   <div class='clearfix'>
+    
     <h3 class='fl m0' id='knowntargetplatforms'>
       knownTargetPlatforms
     </h3>
+    
     
   </div>
   
@@ -1058,9 +1560,10 @@ in the CLI too.</p>
 
 
   <div class='pre p1 fill-light mt0'>knownTargetPlatforms</div>
-
+  
   
 
+  
   
   
   
@@ -1099,9 +1602,11 @@ in the CLI too.</p>
 
   
   <div class='clearfix'>
+    
     <h3 class='fl m0' id='currenttargetplatformname'>
       currentTargetPlatformName
     </h3>
+    
     
   </div>
   
@@ -1110,9 +1615,10 @@ in the CLI too.</p>
 
 
   <div class='pre p1 fill-light mt0'>currentTargetPlatformName</div>
-
+  
   
 
+  
   
   
   
@@ -1151,23 +1657,26 @@ in the CLI too.</p>
 
   
   <div class='clearfix'>
+    
     <h3 class='fl m0' id='apiclient'>
       apiClient
     </h3>
+    
     
   </div>
   
 
   <p>Get instance of <code>particle-api-js</code> {Client}, authenticated if possible.
 When profile is changed a new instance of the client is required.
-It&#x27;s best to listen for <code>current-profile-changed</code> and get the latest
+It's best to listen for <code>current-profile-changed</code> and get the latest
 instance then.</p>
 
 
   <div class='pre p1 fill-light mt0'>apiClient</div>
-
+  
   
 
+  
   
   
   
@@ -1206,9 +1715,11 @@ instance then.</p>
 
   
   <div class='clearfix'>
+    
     <h3 class='fl m0' id='on'>
       on
     </h3>
+    
     
   </div>
   
@@ -1217,9 +1728,10 @@ instance then.</p>
 
 
   <div class='pre p1 fill-light mt0'>on(event: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>, callback: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></div>
-
+  
   
 
+  
   
   
   
@@ -1232,7 +1744,8 @@ instance then.</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>event</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code> Name of the event
+            <span class='code bold'>event</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+	    Name of the event
 
           </div>
           
@@ -1240,7 +1753,8 @@ instance then.</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>callback</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</code> Callback to be called when event is triggered
+            <span class='code bold'>callback</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</code>
+	    Callback to be called when event is triggered
 
           </div>
           
@@ -1256,6 +1770,7 @@ instance then.</p>
       <div class='py1 quiet mt1 prose-big'>Returns</div>
       <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></code>:
         
+
       
     
   

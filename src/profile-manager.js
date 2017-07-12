@@ -1,7 +1,7 @@
 'use babel';
 
 import Api from 'particle-api-js';
-import Device from './objects/Device';
+import Device from './objects/device';
 let Emitter;
 let path;
 let fs;

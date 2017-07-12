@@ -1,3 +1,6 @@
+## 0.2.1
+* Fix [case issue](https://github.com/spark/particle-dev-app/issues/20)
+
 ## 0.2.0
 * Add `isLoggedIn`, `clearCurrentDevice` and `clearCredentials` methods
 * Add `username` and `accessToken` properties

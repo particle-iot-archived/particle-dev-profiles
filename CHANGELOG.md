@@ -1,6 +1,9 @@
-## 0.1.16
-* Add `isLoggedIn` method
-* Add `platform` and `defaultBuildTarget` properties to current device
+## 0.2.0
+* Add `isLoggedIn`, `clearCurrentDevice` and `clearCredentials` methods
+* Add `username` and `accessToken` properties
+* Add `Device` object abstracting device properties
+* Changed `currentDevice` is now an instance of `Device`. To access the `id` use `currentDevice.id`
+* Use profile management from `particle-commands`
 * Update `particle-api-js` to 6.5.0
 * Update `particle-commands` to 0.2.12
 

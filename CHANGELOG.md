@@ -1,3 +1,6 @@
+## 0.2.2
+* Install dependencies without using git
+
 ## 0.2.1
 * Fix [case issue](https://github.com/spark/particle-dev-app/issues/20)
 

@@ -1,3 +1,6 @@
+## 0.2.3
+* Update `particle-api-js` to 6.6.2
+
 ## 0.2.2
 * Install dependencies without using git
 

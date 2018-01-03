@@ -5,7 +5,7 @@
   "description": "Particle Dev support for profiles and basic Particle Cloud authentication",
   "keywords": [],
   "activationCommands": {},
-  "repository": "https://github.com/spark/particle-dev-profiles",
+  "repository": "https://github.com/particle-iot/particle-dev-profiles",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
@@ -16,7 +16,7 @@
     "fs-plus": "^2.9.3",
     "particle-api-js": "^6.6.2",
     "particle-commands": "^0.2.12",
-    "particle-dev-views": "https://github.com/spark/particle-dev-views/archive/v0.0.3.tar.gz"
+    "particle-dev-views": "https://github.com/particle-iot/particle-dev-views/archive/v0.0.3.tar.gz"
   },
   "scripts": {
     "docs": "./docs.sh",

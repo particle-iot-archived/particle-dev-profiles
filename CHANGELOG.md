@@ -5,7 +5,7 @@
 * Install dependencies without using git
 
 ## 0.2.1
-* Fix [case issue](https://github.com/spark/particle-dev-app/issues/20)
+* Fix [case issue](https://github.com/particle-iot/particle-dev-app/issues/20)
 
 ## 0.2.0
 * Add `isLoggedIn`, `clearCurrentDevice` and `clearCredentials` methods
@@ -38,4 +38,4 @@
 * Update `particle-api-js` to 6.1.0
 
 ## 0.1.8
-* Fix [#2](https://github.com/spark/particle-dev-profiles/issues/2)
+* Fix [#2](https://github.com/particle-iot/particle-dev-profiles/issues/2)
